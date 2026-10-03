@@ -1,0 +1,39 @@
+<!doctype html>
+<html lang="fr" class="dark">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>SCAN-ETO | Gestion des prospects</title>
+    <link rel="icon" type="image/png" href="/logo-icon.png" />
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Figtree:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <script>
+      // Dark is the default; applied before first paint to avoid a flash. Key shared with ThemeContext.
+      try {
+        if (localStorage.getItem('scaneto.theme') === 'light') {
+          document.documentElement.classList.remove('dark')
+        }
+      } catch (e) {}
+
+      // iOS Safari auto-zooms into inputs under 16px. maximum-scale=1 stops that, and iOS still
+      // allows pinch-zoom; applied to iOS only because Android would block pinch-zoom entirely.
+      var isIOS =
+        /iPhone|iPad|iPod/.test(navigator.userAgent) ||
+        (/Macintosh/.test(navigator.userAgent) && navigator.maxTouchPoints > 1)
+      if (isIOS) {
+        document
+          .querySelector('meta[name="viewport"]')
+          .setAttribute('content', 'width=device-width, initial-scale=1.0, maximum-scale=1.0')
+      }
+    </script>
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/src/main.jsx"></script>
+  </body>
+</html>
